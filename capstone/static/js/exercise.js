@@ -26,4 +26,6 @@ var loadExercise = 	function(exercise) {
 	workbenchViewModel.loadExpectedResults(exercise.MethodCalls);
 	loadEditorText();
 	$('#Exercises').dialog('close')
+
+	checkToggleGrid();
 };

@@ -49,10 +49,9 @@
                 <input id="TakeStep" type="button" value="Next Step">
                 <div id="ResultData"></div>
                 <div id="TestResultGrid" >
-                  <span></span>
-                  <span>Test</span>
-                  <span>Expected Result</span>
-                  <span>Acutual Result</span>
+                  <span class="testColumn">Test</span>
+                  <span class="expectedResultColumn">Expected Result</span>
+                  <span class="actualResultColumn">Actual Result</span>
                   <ol class="testColumn" 
                       data-role="listview" 
                       data-bind="source: UnitTests" 
@@ -71,6 +70,24 @@
                 </div>
         </div>
 </div>
+
+<script>
+    //Hides #TestResultGrid if no content
+    $(document).ready(function(){ 
+	 if ($(".testColumn li").length == 0) {
+	        $('#TestResultGrid').hide(); 
+	 }
+     });
+
+     //Checks for content in #TestResultGrid and shows or hides
+     function checkToggleGrid() {
+ 	 if ($(".testColumn li").length > 0) {
+		$('#TestResultGrid').slideDown("slow"); 
+	 } else {
+		$('#TestResultGrid').slideUp("slow"); 	
+	 }
+     }
+</script>
 
 <script>
 var pythonCodeEditor = CodeMirror.fromTextArea(document.getElementById("PythonCode"), {
@@ -105,12 +122,10 @@ var currentLine = {
 <script type="text/javascript" src="{{ STATIC_URL }}js/debugger.js"></script>
 
 <script type="text/x-kendo-template" id="test-grid-name">
-  # var testResult = workbenchViewModel.unitTestResult(data) #
-  <li class=#=testResult#>#= data.name#</li>
+  <li>#= data.name#</li>
 </script>
 <script type="text/x-kendo-template" id="test-grid-expectedResult">
-  # var testResult = workbenchViewModel.unitTestResult(data) #
-  <li class=#=testResult#>#= data.expectedResult#</li>
+  <li>#= data.expectedResult#</li>
 </script>
 <script type="text/x-kendo-template" id="test-grid-actualResult">
   # var testResult = workbenchViewModel.unitTestResult(data) #

@@ -7,6 +7,7 @@ $('#SimpleDemo').click(function() {
 
 $('#ClearAll').click(function() {
 	clearAll();
+        checkToggleGrid();
 });
 
 var clearAll = function() {

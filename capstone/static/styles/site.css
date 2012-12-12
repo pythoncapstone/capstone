@@ -65,7 +65,7 @@ a { cursor: hand; cursor: pointer; }
         float: left;
 }
 #ResultData {
-        width: 99%;
+        width: 100%;
         height: 46%;
         border: 3px inset #CCC;
         float: left;
@@ -74,22 +74,54 @@ a { cursor: hand; cursor: pointer; }
         background: white;
 }
 
+#ResultData p {
+	padding-bottom: 10px;	
+}
+
 #TestResultGrid {
         margin-top: 2%;
         border: 3px inset #CCC;
-        width: 99%;
+        width: 100%;
         float: left;
         background: white;
 }
 
-#TestResultGrid ol, #TestResultGrid span {
+#TestResultGrid .testColumn{
         list-style-type: none;
-        width: 32%;
+        width: 49.5%;
         float: left;
 }
+#TestResultGrid .expectedResultColumn, #TestResultGrid .actualResultColumn {
+	 list-style-type: none;
+     	 width: 25%;
+     	 float: left;
+}
 
+#TestResultGrid .testColumn, #TestResultGrid .expectedResultColumn {
+	border-right: 1px solid;	
+}
+.DebugResultWrap #TestResultGrid  span {
+	font-weight: 500;
+	background-color: #333;
+	color: white;
+	text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+	text-align: center;
+	border-bottom: 1px solid white;
+}
+#TestResultGrid ol.expectedResultColumn, #TestResultGrid ol.actualResultColumn {
+	text-align:center;
+}
 #TestResultGrid li.testFailed {
-        background-color: red;
+    background: url(images/X.png) no-repeat right ;
+	color: red;
+}
+#TestResultGrid li.testPassed {
+    background: url(images/checkmark.png) no-repeat right;
+	color: green;
 }
 
 .PythonCodeWrap {
