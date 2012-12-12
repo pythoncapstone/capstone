@@ -83,7 +83,7 @@ a { cursor: hand; cursor: pointer; }
         border: 3px inset #CCC;
         width: 100%;
         float: left;
-        background: white;
+        background: #D3D7FE;
 }
 
 #TestResultGrid .testColumn{
