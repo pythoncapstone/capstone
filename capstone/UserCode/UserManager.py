@@ -1,5 +1,8 @@
 from capstone.UserCode import UserCodeManager
 
+#Communicates with the front end
+#Makes calls in UserCodeManager based on what was called from the front end
+#The calls to this from the front end can be found in the "student\views.py"
 class UserManager:
 	userCodeManagers = None;
 

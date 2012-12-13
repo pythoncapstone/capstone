@@ -1,4 +1,7 @@
-﻿import re
+﻿#This parses through the output from the frame from PythonFileBuilder
+#And generates the necessary output
+#Includes information about locals, exceptions, line number, and end of file
+import re
 class FileParser:
 	CURRENT_LINE_MATCHER = re.compile(r'^\s+(\d+)\s+->.*$')
 	FRAME_BEFORE_USER_CODE = "trace_dispatch"
@@ -86,6 +89,7 @@ class FileParser:
 		if (function_Name == self.FRAME_BEFORE_USER_CODE):
 			self.functions_including_their_vars[function_Name] = "Remove Me"
 		return	shouldAddUserFunction
+		
 	def __does_not_have_module_function(self, function_Name):
 		if (function_Name == self.FRAME_AFTER_USER_CODE):
 		 	self.functions_including_their_vars[function_Name] = "Remove Me"

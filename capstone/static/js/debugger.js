@@ -10,6 +10,7 @@ $('#ClearAll').click(function() {
         checkToggleGrid();
 });
 
+//clears all fields
 var clearAll = function() {
 	$('#ResultData').text("");
 	pythonCodeEditor.setValue("");
@@ -22,6 +23,7 @@ var loadEditorText = function() {
 	unitTestEditor.setValue(workbenchViewModel.getMethodCallTextFromUnitTests());
 };
 
+//calls the url which runs the function
 $('#startDebugging').click(function() {
 	var pythonCode = { pythonCode: pythonCodeEditor.getValue, unitTests: unitTestEditor.getValue() };
 	$.get('/student/startDebugging', pythonCode, function(data) {
@@ -29,12 +31,14 @@ $('#startDebugging').click(function() {
 	});
 });
 
+//calls the url which runs the function
 $("#TakeStep").click(function() {
   $.get('/student/takeStep', function(data) {
 		displayResultData(data)
 	});
 });
 
+//calls the url which runs the function
 $('#runAll').click(function() {
 	var pythonCode = { pythonCode: pythonCodeEditor.getValue, unitTests: unitTestEditor.getValue() };
 	$.get('/student/runAll', pythonCode, function(data) {
@@ -82,6 +86,7 @@ var lolStringConcats = function(exceptions, localVars, stackInfo) {
 	}
 }
 
+//sorts the stack information
 function sortOnKeys(dict) {
 
     var sorted = [];
