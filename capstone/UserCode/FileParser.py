@@ -48,6 +48,7 @@ class FileParser:
 
 	def __check_For_Function_Name_And_Local_Vars(self, line):
 		try: # startswtih doesn't precheck string length
+			#this indicates the start of the function name the code is in, as well as its local vars
 			if line.startswith('FunctionName='):
 				segments = line.split('===')
 				function_Name = segments[1];		
